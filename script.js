@@ -157,7 +157,7 @@ function compareRes() {
 	let planK = parseInt(document.getElementById("planKalori").innerHTML);
 
 	if (normaK > planK) {
-		document.getElementById("resultCompare").innerHTML = ("Не привышает норму!");
+		document.getElementById("resultCompare").innerHTML = ("Не превышает норму!");
 	}
 
 	else if (normaK < planK) {
