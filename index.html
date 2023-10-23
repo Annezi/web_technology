@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="style.css">
+	<title>Калькулятор снеков для фильма</title>
+</head>
+
+<body>
+	<div class="container">
+
+		<div class="text-h1">
+			Калькулятор полезности снеков под фильм
+		</div>
+
+		<div class="content">
+			<div class="content-left">
+				<div class="personal_data">
+					<div class="wrapper-personal_data">
+						<div class="text-h2">Ваши данные</div>
+						<div class="data-first_line">
+							<div class="dfl-1">
+								<div class="text-h3">Пол</div>
+								<div>
+									<form>
+										<select name="gender" id="genderSelect" class="input-select_style">
+											<option value="1">Женщина</option>
+											<option value="2">Мужчина</option>
+										</select>
+									</form>
+								</div>
+							</div>
+							<div class="dfl-2">
+								<div class="text-h3">Возраст</div>
+								<div>
+									<input type="number" id="personalAge" class="input-1_style" min="1" max="100">
+								</div>
+							</div>
+						</div>
+						<div class="data-second_line">
+							<div class="dfl-3">
+								<div class="text-h3">Вес</div>
+								<input type="number" id="personalWight" class="input-1_style" min="1" max="300">
+							</div>
+							<div class="dfl-4">
+								<div class="text-h3">Рост</div>
+								<input type="number" id="personalHeight" class="input-1_style" min="1" max="300">
+							</div>
+						</div>
+						<div class="data-third_line">
+							<div class="text-h3">Активность</div>
+							<form>
+								<select name="personalActive" id="personalActiveSelect" class="select_style">
+									<option value="1.2">Минимальная активность</option>
+									<option value="1.55">Средняя активность</option>
+									<option value="1.725">Высокая активность</option>
+								</select>
+							</form>
+						</div>
+						<div class="data-button_line">
+							<button id="normaButton" class="button_style" onclick="kbzu();">Рассчитать норму</button>
+						</div>
+					</div>
+
+				</div>
+
+				<div class="personal_meal">
+					<div class="wrapper-personal_meal">
+						<div class="text-h2">Хочу съесть</div>
+						<div class="container-snacks">
+							<div class="wrapper-snacks">
+								<div class="snacks-text">
+									<div class="text-h3">Чипсы</div>
+									<div class="text-p">Пачка 140г</div>
+								</div>
+								<div class="snacks-counter">
+									<span id="minusOne" class="minus">-</span>
+									<span id="numberOne" class="number">0</span>
+									<span id="plusOne" class="plus">+</span>
+								</div>
+							</div>
+							<div class="wrapper-snacks">
+								<div class="snacks-text">
+									<div class="text-h3">Попкорн</div>
+									<div class="text-p">Пачка 80г</div>
+								</div>
+								<div class="snacks-counter">
+									<span id="minusTwo" class="minus">-</span>
+									<span id="numberTwo" class="number">0</span>
+									<span id="plusTwo" class="plus">+</span>
+								</div>
+							</div>
+							<div class="wrapper-snacks">
+								<div class="snacks-text">
+									<div class="text-h3">Энергетик</div>
+									<div class="text-p">Банка 0,445л</div>
+								</div>
+								<div class="snacks-counter">
+									<span id="minusThree" class="minus">-</span>
+									<span id="numberThree" class="number">0</span>
+									<span id="plusThree" class="plus">+</span>
+								</div>
+							</div>
+							<div class="wrapper-snacks">
+								<div class="snacks-text">
+									<div class="text-h3">Кола</div>
+									<div class="text-p">Бутылка 0,5л</div>
+								</div>
+								<div class="snacks-counter">
+									<span id="minusFour" class="minus">-</span>
+									<span id="numberFour" class="number">0</span>
+									<span id="plusFour" class="plus">+</span>
+								</div>
+							</div>
+						</div>
+						<div class="data-button_line">
+							<button id="planButton" class="button_style" onclick="planSnek()">Рассчитать план</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="content-right">
+				<div class="wrapper-content-right">
+					<div class="personalCheck">
+						<div class="text-h2-white">Суточная норма</div>
+						<div class="wrapper-kbzu_el">
+							<div class="text-h3-white">Калории</div>
+							<div class="text-h3-white" id="normaKalori"></div>
+						</div>
+						<div class="wrapper-kbzu_el">
+							<div class="text-h3-white">Белки</div>
+							<div class="text-h3-white" id="protein"></div>
+						</div>
+						<div class="wrapper-kbzu_el">
+							<div class="text-h3-white">Жиры</div>
+							<div class="text-h3-white" id="fats"></div>
+						</div>
+						<div class="wrapper-kbzu_el">
+							<div class="text-h3-white">Углеводы</div>
+							<div class="text-h3-white" id="carbohydrates"></div>
+						</div>
+					</div>
+	
+					<div class="personalPreCheck">
+						<div class="text-h2-white">Планирую съесть</div>
+						<div class="wrapper-kbzu_el">
+							<div class="text-h3-white">Калории</div>
+							<div class="text-h3-white" id="planKalori"></div>
+						</div>
+						<div class="wrapper-kbzu_el">
+							<div class="text-h3-white">Белки</div>
+							<div class="text-h3-white" id="planProtein"></div>
+						</div>
+						<div class="wrapper-kbzu_el">
+							<div class="text-h3-white">Жиры</div>
+							<div class="text-h3-white" id="planFats"></div>
+						</div>
+						<div class="wrapper-kbzu_el">
+							<div class="text-h3-white">Углеводы</div>
+							<div class="text-h3-white" id="planCarbohydrates"></div>
+						</div>
+					</div>
+	
+					<div class="result-compare">
+						<div class="text-h3" id="resultCompare"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<script src="script.js"></script>
+</body>
+
+</html>
